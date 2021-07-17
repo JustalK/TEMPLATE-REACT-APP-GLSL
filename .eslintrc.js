@@ -28,6 +28,7 @@ module.exports = {
         map: [
           ['@src', './src'],
           ['@pages', './src/pages'],
+          ['@constants', './src/constants'],
           ['@styles', './src/styles'],
           ['@components', './src/components'],
           ['@services', './src/services']
@@ -45,6 +46,8 @@ module.exports = {
         semi: false
       }
     ],
-    'arrow-body-style': 0
+    'arrow-body-style': 0,
+    'react/prop-types': 0,
+    'no-return-assign': 0
   }
 }
