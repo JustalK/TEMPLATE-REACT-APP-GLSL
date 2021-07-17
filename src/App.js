@@ -10,14 +10,15 @@ import Secondary from '@pages/Secondary'
 export default function App() {
   const scrollRef = useRef()
   const scroll = useRef(0)
-  const slides = 3
+  const totalSlides = useRef(4)
   const doScroll = (e) => {
     scroll.current =
-      (slides * e.target.scrollTop) /
+      ((totalSlides.current - 1) * e.target.scrollTop) /
       (e.target.scrollHeight - window.innerHeight)
   }
 
-  const scrollTop = () => {
+  const changePage = (pageSlides) => {
+    totalSlides.current = pageSlides
     scrollRef.current.scrollTop = 0
   }
 
@@ -27,21 +28,17 @@ export default function App() {
         <Suspense fallback={null}>
           <Scroll scroll={scroll}>
             <Route path={ROUTE_SECONDARY}>
-              <Secondary />
+              <Secondary changePage={changePage} />
             </Route>
             <Route path={ROUTE_HOME}>
-              <Home scrollTop={scrollTop} />
+              <Home changePage={changePage} />
             </Route>
           </Scroll>
         </Suspense>
       </Canvas>
       <div ref={scrollRef} onScroll={doScroll} className="scroll">
-        <Route path={ROUTE_SECONDARY}>
-          <Panel slides={2} />
-        </Route>
-        <Route path={ROUTE_HOME}>
-          <Panel slides={4} />
-        </Route>
+        <Panel path={ROUTE_SECONDARY} size={200} />
+        <Panel path={ROUTE_HOME} size={400} />
       </div>
     </div>
   )

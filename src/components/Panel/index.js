@@ -1,7 +1,12 @@
 import React from 'react'
+import { Route } from 'wouter'
 
-const Panel = ({ slides }) => {
-  return <div style={{ height: `${slides * 100}vh`, pointerEvents: 'none' }} />
+const Panel = ({ path, size }) => {
+  return (
+    <Route path={path}>
+      <div style={{ height: `${size}vh`, pointerEvents: 'none' }} />
+    </Route>
+  )
 }
 
 export default Panel

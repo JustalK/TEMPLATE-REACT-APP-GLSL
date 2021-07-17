@@ -2,12 +2,16 @@
  * The module managing the home page
  * @module Home
  */
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Transitions from '@components/Transition'
 import { ROUTE_HOME } from '@constants/routes'
 
-export default function Home() {
+export default function Home({ changePage }) {
   const activated = useRef(false)
+
+  useEffect(() => {
+    changePage(2)
+  }, [])
 
   return (
     <>

@@ -10,7 +10,7 @@ import Slide2 from './Slides/Slide2'
 import Slide3 from './Slides/Slide3'
 import Slide4 from './Slides/Slide4'
 
-export default function Home({ scrollTop }) {
+export default function Home({ changePage }) {
   const activated = useRef(false)
 
   const handleOnClick = () => {
@@ -18,7 +18,7 @@ export default function Home({ scrollTop }) {
   }
 
   useEffect(() => {
-    scrollTop()
+    changePage(4)
   }, [])
 
   return (
