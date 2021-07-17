@@ -3,7 +3,7 @@ import { useThree, useFrame } from '@react-three/fiber'
 import { useLocation } from 'wouter'
 import transitionMaterial from './Materials'
 
-const Transition = ({ activated, route }) => {
+const Transition = ({ pageSlides, activated, route }) => {
   const location = useLocation()
   const setLocation = location[1]
   const ref = useRef()
@@ -21,8 +21,10 @@ const Transition = ({ activated, route }) => {
 
   return (
     <mesh position={[0, 0, 1]}>
-      <planeGeometry args={[viewport.width, viewport.height, 32, 32]} />
-      <transitionMaterial ref={ref} transparent />
+      <planeGeometry
+        args={[viewport.width, pageSlides * 2 * viewport.height, 32, 32]}
+      />
+      <transitionMaterial ref={ref} pageSlides={pageSlides * 2} transparent />
     </mesh>
   )
 }

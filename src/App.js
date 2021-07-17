@@ -17,7 +17,7 @@ export default function App() {
       (e.target.scrollHeight - window.innerHeight)
   }
 
-  const changePage = (pageSlides) => {
+  const loadedPage = (pageSlides) => {
     totalSlides.current = pageSlides
     scrollRef.current.scrollTop = 0
   }
@@ -28,10 +28,10 @@ export default function App() {
         <Suspense fallback={null}>
           <Scroll scroll={scroll}>
             <Route path={ROUTE_SECONDARY}>
-              <Secondary changePage={changePage} />
+              <Secondary loadedPage={loadedPage} />
             </Route>
             <Route path={ROUTE_HOME}>
-              <Home changePage={changePage} />
+              <Home loadedPage={loadedPage} />
             </Route>
           </Scroll>
         </Suspense>

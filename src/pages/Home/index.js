@@ -10,7 +10,9 @@ import Slide2 from './Slides/Slide2'
 import Slide3 from './Slides/Slide3'
 import Slide4 from './Slides/Slide4'
 
-export default function Home({ changePage }) {
+const pageSlides = 4
+
+export default function Home({ loadedPage }) {
   const activated = useRef(false)
 
   const handleOnClick = () => {
@@ -18,12 +20,16 @@ export default function Home({ changePage }) {
   }
 
   useEffect(() => {
-    changePage(4)
+    loadedPage(pageSlides)
   }, [])
 
   return (
     <>
-      <Transitions activated={activated} route={ROUTE_SECONDARY} />
+      <Transitions
+        pageSlides={pageSlides}
+        activated={activated}
+        route={ROUTE_SECONDARY}
+      />
       <ambientLight intensity={0.1} />
       <Slide1 handleOnClick={handleOnClick} />
       <Slide2 handleOnClick={handleOnClick} />

@@ -11,7 +11,8 @@ export default class TransitionMaterial extends THREE.ShaderMaterial {
             window.innerHeight / window.innerWidth
           )
         },
-        uVelo: { value: 2.0 }
+        uVelo: { value: 2.0 },
+        uPageSlides: { value: 4.0 }
       },
       vertexShader: `
       varying vec2 vUv;
@@ -24,6 +25,7 @@ export default class TransitionMaterial extends THREE.ShaderMaterial {
       varying vec2 vUv;
       uniform vec2 resolution;
       uniform float uVelo;
+      uniform float uPageSlides;
       float rand(int x, int y){
         vec2 co = vec2(float(x), float(y));
         return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
@@ -87,8 +89,8 @@ export default class TransitionMaterial extends THREE.ShaderMaterial {
 
       }
       void main()  {
-          vec2 newUV = vUv / resolution;
-          float noise = perlinishNoise(5., newUV, 10, 2.);
+          vec2 newUV = vUv / vec2(resolution.x, resolution.y / uPageSlides);
+          float noise = perlinishNoise(2.0, newUV, 3, 5.);
           if(noise > (uVelo)*0.5){
               gl_FragColor =  vec4(0.0, 0.0, 0.0, 0.0);
           }
@@ -105,6 +107,14 @@ export default class TransitionMaterial extends THREE.ShaderMaterial {
 
   set uVelo(v) {
     return (this.uniforms.uVelo.value = v)
+  }
+
+  get uPageSlides() {
+    return this.uniforms.uPageSlides.value
+  }
+
+  set uPageSlides(v) {
+    return (this.uniforms.uPageSlides.value = v)
   }
 }
 

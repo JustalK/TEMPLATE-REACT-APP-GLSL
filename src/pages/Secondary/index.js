@@ -6,16 +6,22 @@ import React, { useRef, useEffect } from 'react'
 import Transitions from '@components/Transition'
 import { ROUTE_HOME } from '@constants/routes'
 
-export default function Home({ changePage }) {
+const pageSlides = 2
+
+export default function Home({ loadedPage }) {
   const activated = useRef(false)
 
   useEffect(() => {
-    changePage(2)
+    loadedPage(pageSlides)
   }, [])
 
   return (
     <>
-      <Transitions activated={activated} route={ROUTE_HOME} />
+      <Transitions
+        pageSlides={pageSlides}
+        activated={activated}
+        route={ROUTE_HOME}
+      />
       <ambientLight intensity={0.1} />
       <directionalLight color="red" position={[0, 0, 5]} />
       <mesh position={[0, 0, 0]} onClick={() => (activated.current = true)}>
