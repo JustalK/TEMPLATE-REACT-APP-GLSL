@@ -1,14 +1,16 @@
+![Alt text](documentation/video.gif?raw=true "REACT-APP-GLSL")
+
 # REACT APP TEMPLATE
 
 ## Goal
 
-This project is a template for building react-app full with WebGl with all my favorite tools already configured.
+This project is a template for building React App linked to WebGl with all my favorite tools already configured.
 
 Obviously, the app is using the latest version of `react`. For avoiding the relative path, I modified the webpack and allowing the import with an alias. I also added the support for sass files.
 
 In addition, I added `prettier` and configured it for working well with `esLint`. Finally, I added the basic usefull package such as the router and the helmet.  
 
-For the WebGl part, I am using `React Three Fiber` and `GLSL` for the shader.
+For the WebGl part, I am using `React Three Fiber` and `GLSL` for the shader. For a starting point, the project already has 2 pages with few meshes, 1 GLSL transition and a scroll linked to the canvas.
 
 ## Plan of the presentation
 
