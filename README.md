@@ -2,11 +2,13 @@
 
 ## Goal
 
-This project is a template for building react-app with all my favorite tools already configured.
+This project is a template for building react-app full with WebGl with all my favorite tools already configured.
 
 Obviously, the app is using the latest version of `react`. For avoiding the relative path, I modified the webpack and allowing the import with an alias. I also added the support for sass files.
 
 In addition, I added `prettier` and configured it for working well with `esLint`. Finally, I added the basic usefull package such as the router and the helmet.  
+
+For the WebGl part, I am using `React Three Fiber` and `GLSL` for the shader.
 
 ## Plan of the presentation
 
@@ -48,6 +50,11 @@ npm run build:docs
 
 
 ## Development
+
+#### Creating a page
+
+For creating a new page, you need to set create a components inside the folder *pages* and to connect it in *app* by creating a Panel with the size of the page and creating the route.
+
 #### Packages
 
 - **react-app-rewired**: Allow us to rewrite the config of React without ejecting the app
@@ -63,6 +70,10 @@ npm run build:docs
 - **jsdoc**: For managing the dev documentation of the project
 - **react-router-dom**: For managing the router and the path to the differents pages
 - **react-helmet**: For managing the meta of the differents page
+- **three**: Allow us to use the webgl easily
+- **@react-three/fiber**: For connecting three with react
+- **@react-three/drei**: An extension of r3f for using the shader
+- **wouter**: For managing the routing of the app easily
 
 ## Running
 
