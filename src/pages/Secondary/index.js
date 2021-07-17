@@ -1,14 +1,21 @@
 /**
- * The module managing the home page
- * @module Home
+ * The module managing the secondary page
+ * @module Secondary
  */
 import React, { useRef, useEffect } from 'react'
 import Transitions from '@components/Transition'
 import { ROUTE_HOME } from '@constants/routes'
 
+/* Number of slides of the Secondary */
 const pageSlides = 2
 
-export default function Home({ loadedPage }) {
+/**
+ * @function Secondary
+ * Create the Secondary page with all the slide and elements of this component inside
+ * @param {function} loadedPage The function to call once the page is loaded
+ * @return {Object} Return the dom of the Secondary
+ */
+export default function Secondary({ loadedPage }) {
   const activated = useRef(false)
 
   useEffect(() => {

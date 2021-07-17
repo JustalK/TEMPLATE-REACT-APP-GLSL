@@ -1,3 +1,8 @@
+/**
+ * The class managing the transition between the page
+ * @module components/TransitionMaterial
+ */
+
 import * as THREE from 'three'
 import { extend } from '@react-three/fiber'
 

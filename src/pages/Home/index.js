@@ -10,8 +10,15 @@ import Slide2 from './Slides/Slide2'
 import Slide3 from './Slides/Slide3'
 import Slide4 from './Slides/Slide4'
 
+/* Number of slides of the Home */
 const pageSlides = 4
 
+/**
+ * @function Home
+ * Create the home page with all the slide and elements of this component inside
+ * @param {function} loadedPage The function to call once the page is loaded
+ * @return {Object} Return the dom of the Home
+ */
 export default function Home({ loadedPage }) {
   const activated = useRef(false)
 
